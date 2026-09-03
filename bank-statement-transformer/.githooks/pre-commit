@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.." || exit 1
+npm run format:check && npm run lint && npm test

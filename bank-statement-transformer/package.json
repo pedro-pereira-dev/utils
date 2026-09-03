@@ -1,0 +1,31 @@
+{
+  "name": "bank-statement-transformer",
+  "version": "1.0.0",
+  "description": "Deterministic native-text bank statement PDF-to-CSV converter",
+  "type": "module",
+  "scripts": {
+    "transform": "tsx src/cli.ts",
+    "-": "-",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "test": "tsx --test tests/*.test.ts",
+    "--": "-",
+    "update": "npm run update:check && npm run update:reinstall",
+    "update:check": "npx npm-check-updates -i --format group --cooldown 4d",
+    "update:reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install --before=\"$(node -p 'new Date(Date.now() - 172800000).toISOString()')\""
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.3.289"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.0",
+    "oxfmt": "0.65.0",
+    "oxlint": "1.80.0",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}

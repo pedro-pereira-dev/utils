@@ -1,0 +1,9 @@
+#!/bin/sh
+
+root=$(git rev-parse --show-toplevel) || exit 1
+
+for hook in "${root}"/*/.githooks/pre-commit; do
+  [ -x "${hook}" ] || continue
+  directory=${hook%/.githooks/pre-commit}
+  git diff --cached --quiet -- "${directory}" || "${hook}" || exit 1
+done
