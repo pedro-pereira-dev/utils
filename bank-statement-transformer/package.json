@@ -16,13 +16,13 @@
     "update:reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install --before=\"$(node -p 'new Date(Date.now() - 172800000).toISOString()')\""
   },
   "dependencies": {
-    "pdfjs-dist": "6.3.289"
+    "pdfjs-dist": "6.4.299"
   },
   "devDependencies": {
-    "@types/node": "26.4.0",
-    "oxfmt": "0.65.0",
-    "oxlint": "1.80.0",
-    "tsx": "4.23.13",
+    "@types/node": "26.6.4",
+    "oxfmt": "0.72.0",
+    "oxlint": "1.87.0",
+    "tsx": "4.23.15",
     "typescript": "7.0.2"
   },
   "engines": {
