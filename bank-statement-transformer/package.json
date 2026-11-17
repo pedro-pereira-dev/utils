@@ -11,17 +11,19 @@
     "lint": "oxlint .",
     "test": "tsx --test tests/*.test.ts",
     "--": "-",
-    "update": "npm run update:check && npm run update:reinstall",
-    "update:check": "npx npm-check-updates -i --format group --cooldown 4d",
-    "update:reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install --before=\"$(node -p 'new Date(Date.now() - 172800000).toISOString()')\""
+    "check": "npm run format && npm run lint && npm run test",
+    "---": "-",
+    "update": "npm run update:check && npm run update:reinstall && npm run check",
+    "update:check": "npx npm-check-updates -i --format group",
+    "update:reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install"
   },
   "dependencies": {
-    "pdfjs-dist": "6.4.299"
+    "pdfjs-dist": "6.5.438"
   },
   "devDependencies": {
-    "@types/node": "26.6.4",
-    "oxfmt": "0.72.0",
-    "oxlint": "1.87.0",
+    "@types/node": "26.6.6",
+    "oxfmt": "0.79.0",
+    "oxlint": "1.94.0",
     "tsx": "4.23.15",
     "typescript": "7.0.2"
   },
